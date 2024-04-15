@@ -1,4 +1,4 @@
-package com.eazybytes.config;
+package com.eazybytes.security;
 
 import com.eazybytes.entity.model.Customer;
 import com.eazybytes.repository.CustomerRepository;

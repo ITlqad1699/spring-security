@@ -1,5 +1,6 @@
 package com.eazybytes.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 /**
@@ -7,14 +8,19 @@ import lombok.Data;
  */
 @Data
 public class ContactDTO {
-
-    private String contactId;
-
-    private String contactName;
-
-    private String contactEmail;
-
-    private String subject;
-
-    private String message;
+	
+	@JsonProperty("contactId")
+	private String contactId;
+	
+	@JsonProperty("contactName")
+	private String contactName;
+	
+	@JsonProperty("contactEmail")
+	private String contactEmail;
+	
+	@JsonProperty("subject")
+	private String subject;
+	
+	@JsonProperty("message")
+	private String message;
 }

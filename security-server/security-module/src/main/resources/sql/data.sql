@@ -1,37 +1,44 @@
-INSERT INTO `customer` (`name`, `email`, `mobile_number`, `pwd`, `role`, `create_dt`, `update_dt`)
+INSERT INTO eazybank.customer (`name`, `email`, `mobile_number`, `pwd`, `role`, `create_dt`, `update_dt`)
 VALUES ('Happy', 'happy@example.com', '9876548337', '$2y$12$oRRbkNfwuR8ug4MlzH5FOeui.//1mkd.RsOAJMbykTSupVy.x/vb2',
         'admin', CURRENT_TIMESTAMP(), CURRENT_TIMESTAMP());
 
-INSERT INTO `accounts` (`customer_id`, `account_number`, `account_type`, `branch_address`, `create_dt`, `update_dt`)
+INSERT INTO eazybank.accounts (`customer_id`, `account_number`, `account_type`, `branch_address`, `create_dt`,
+                               `update_dt`)
 VALUES (1, 1865764534, 'Savings', '123 Main Street, New York', current_timestamp(), CURRENT_TIMESTAMP());
 
-INSERT INTO account_transactions (transaction_id, account_number, customer_id, transaction_dt, transaction_summary,
-                                  transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
+INSERT INTO eazybank.account_transactions (transaction_id, account_number, customer_id, transaction_dt,
+                                           transaction_summary,
+                                           transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
 VALUES (UUID(), 1865764534, 1, CURRENT_DATE - 7, 'Coffee Shop', 'Withdrawal', 30, 34500,
         CURRENT_TIMESTAMP() - INTERVAL '7' DAY, NULL);
 
-INSERT INTO account_transactions (transaction_id, account_number, customer_id, transaction_dt, transaction_summary,
-                                  transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
+INSERT INTO eazybank.account_transactions (transaction_id, account_number, customer_id, transaction_dt,
+                                           transaction_summary,
+                                           transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
 VALUES (UUID(), 1865764534, 1, CURRENT_DATE - 6, 'Uber', 'Withdrawal', 100, 34400,
         CURRENT_TIMESTAMP() - INTERVAL '6' DAY, NULL);
 
-INSERT INTO account_transactions (transaction_id, account_number, customer_id, transaction_dt, transaction_summary,
-                                  transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
+INSERT INTO eazybank.account_transactions (transaction_id, account_number, customer_id, transaction_dt,
+                                           transaction_summary,
+                                           transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
 VALUES (UUID(), 1865764534, 1, CURRENT_DATE - 5, 'Self Deposit', 'Deposit', 500, 34900,
         CURRENT_TIMESTAMP() - INTERVAL '5' DAY, NULL);
 
-INSERT INTO account_transactions (transaction_id, account_number, customer_id, transaction_dt, transaction_summary,
-                                  transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
+INSERT INTO eazybank.account_transactions (transaction_id, account_number, customer_id, transaction_dt,
+                                           transaction_summary,
+                                           transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
 VALUES (UUID(), 1865764534, 1, CURRENT_DATE - 4, 'Ebay', 'Withdrawal', 600, 34300,
         CURRENT_TIMESTAMP() - INTERVAL '4' DAY, NULL);
 
-INSERT INTO account_transactions (transaction_id, account_number, customer_id, transaction_dt, transaction_summary,
-                                  transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
+INSERT INTO eazybank.account_transactions (transaction_id, account_number, customer_id, transaction_dt,
+                                           transaction_summary,
+                                           transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
 VALUES (UUID(), 1865764534, 1, CURRENT_DATE - 2, 'OnlineTransfer', 'Deposit', 700, 35000,
         CURRENT_TIMESTAMP() - INTERVAL '2' DAY, NULL);
 
-INSERT INTO account_transactions (transaction_id, account_number, customer_id, transaction_dt, transaction_summary,
-                                  transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
+INSERT INTO eazybank.account_transactions (transaction_id, account_number, customer_id, transaction_dt,
+                                           transaction_summary,
+                                           transaction_type, transaction_amt, closing_balance, create_dt, update_dt)
 VALUES (UUID(), 1865764534, 1, CURRENT_DATE - 1, 'Amazon.com', 'Withdrawal', 100, 34900,
         CURRENT_TIMESTAMP() - INTERVAL '1' DAY, NULL);
 

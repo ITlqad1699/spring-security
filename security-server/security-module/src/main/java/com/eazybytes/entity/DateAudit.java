@@ -10,19 +10,19 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @Setter
 @Getter
 public abstract class DateAudit implements Serializable {
-    @CreatedDate
-    @Column(name = "create_dt", nullable = false, updatable = false)
-    private Date createDt;
-
-    @LastModifiedDate
-    @Column(name = "update_dt")
-    private Date updateDt;
-
+	@CreatedDate
+	@Column(name = "create_dt", nullable = false, updatable = false)
+	private Date createDt;
+	
+	@LastModifiedDate
+	@Column(name = "update_dt")
+	private Date updateDt;
+	
 }
