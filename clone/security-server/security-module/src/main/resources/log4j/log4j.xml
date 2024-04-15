@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+    <Properties>
+        <Property name="LOG_DATETIME_FORMAT">yyyy-MM-dd HH:mm:ss.SSS</Property>
+        <Property name="LOG_LOGGING_LEVEL_CONSOLE">${sys:logLevelRoot}</Property>
+        <Property name="LOG_LOGGING_LEVEL_ROOT">${sys:logLevelRoot}</Property>
+        <Property name="APP_LOG_ROOT">D:${sys:logDirPath}</Property>
+        <Property name="LOG_PATTERN">%d{${LOG_DATETIME_FORMAT}} [%p] %t:%c:%m%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+        <RollingFile name="appLog"
+                     fileName="${APP_LOG_ROOT}/spring-security/eazy-bank-app.log"
+                     filePattern="${APP_LOG_ROOT}/spring-security/application-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="1"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="ezbank-security.app" additivity="false">
+            <AppenderRef ref="appLog"/>
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Root level="${LOG_LOGGING_LEVEL_ROOT}">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="appLog"/>
+        </Root>
+    </Loggers>
+</Configuration>
