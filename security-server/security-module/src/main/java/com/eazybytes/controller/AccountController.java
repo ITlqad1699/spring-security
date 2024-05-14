@@ -25,12 +25,12 @@ public class AccountController {
     /**
      * Gets my account.
      *
-     * @param customerId the customer id
+     * @param id the customer id
      * @return the my account
      */
     @GetMapping("/my-account")
-    public ResponseEntity<AccountDTO> getMyAccount(@RequestParam @Nullable String customerId) {
-        AccountDTO accountDTO = accountService.getAccount(customerId);
+    public ResponseEntity<AccountDTO> getMyAccount(@RequestParam @Nullable String id) {
+        AccountDTO accountDTO = accountService.getAccount(id);
         if (ObjectUtils.isEmpty(accountDTO)) {
             return ResponseEntity.notFound().build();
         }

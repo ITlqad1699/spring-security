@@ -87,3 +87,30 @@ VALUES ('COVID-19 Insurance',
         CURDATE() - INTERVAL 30 DAY, CURDATE() + INTERVAL 30 DAY, CURDATE(), null);
 
 
+INSERT INTO eazybank.`loans` (`customer_id`, `start_dt`, `loan_type`, `total_loan`, `amount_paid`, `outstanding_amount`,
+                              `create_dt`)
+VALUES (1, '2020-10-13', 'Home', 200000, 50000, 150000, '2020-10-13');
+
+INSERT INTO eazybank.`loans` (`customer_id`, `start_dt`, `loan_type`, `total_loan`, `amount_paid`, `outstanding_amount`,
+                              `create_dt`)
+VALUES (1, '2020-06-06', 'Vehicle', 40000, 10000, 30000, '2020-06-06');
+
+INSERT INTO eazybank.`loans` (`customer_id`, `start_dt`, `loan_type`, `total_loan`, `amount_paid`, `outstanding_amount`,
+                              `create_dt`)
+VALUES (1, '2018-02-14', 'Home', 50000, 10000, 40000, '2018-02-14');
+
+INSERT INTO eazybank.`loans` (`customer_id`, `start_dt`, `loan_type`, `total_loan`, `amount_paid`, `outstanding_amount`,
+                              `create_dt`)
+VALUES (1, '2018-02-14', 'Personal', 10000, 3500, 6500, '2018-02-14');
+
+INSERT INTO eazybank.`cards` (`card_number`, `customer_id`, `card_type`, `total_limit`, `amount_used`,
+                              `available_amount`, `create_dt`)
+VALUES ('4565XXXX4656', 1, 'Credit', 10000, 500, 9500, CURDATE());
+
+INSERT INTO eazybank.`cards` (`card_number`, `customer_id`, `card_type`, `total_limit`, `amount_used`,
+                              `available_amount`, `create_dt`)
+VALUES ('3455XXXX8673', 1, 'Credit', 7500, 600, 6900, CURDATE());
+
+INSERT INTO eazybank.`cards` (`card_number`, `customer_id`, `card_type`, `total_limit`, `amount_used`,
+                              `available_amount`, `create_dt`)
+VALUES ('2359XXXX9346', 1, 'Credit', 20000, 4000, 16000, CURDATE());

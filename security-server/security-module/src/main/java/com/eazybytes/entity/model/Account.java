@@ -10,21 +10,21 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "account")
+@Table(name = "accounts")
 @Setter
 @Getter
 public class Account extends DateAudit {
-
-    @Column(name = "customer_id")
-    private Integer customerId;
-
-    @Id
-    @Column(name = "account_number")
-    private Long accountNumber;
-
-    @Column(name = "account_type")
-    private String accountType;
-
-    @Column(name = "branch_address")
-    private String branchAddress;
+	
+	@Column(name = "customer_id")
+	private Integer customerId;
+	
+	@Id
+	@Column(name = "account_number")
+	private Long accountNumber;
+	
+	@Column(name = "account_type")
+	private String accountType;
+	
+	@Column(name = "branch_address")
+	private String branchAddress;
 }

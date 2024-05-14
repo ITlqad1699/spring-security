@@ -46,8 +46,7 @@ public class ProjectSecurityConfig {
 					config.setAllowedHeaders(Collections.singletonList("*"));
 					config.setMaxAge(3600L);
 					return config;
-				})).csrf(csrf -> csrf.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers(HTTP_CONTACT,
-								HTTP_REGISTER, HTTP_NOTICES, "/h2-console/**")
+				})).csrf(csrf -> csrf.csrfTokenRequestHandler(requestHandler).ignoringRequestMatchers(HTTP_CONTACT, HTTP_REGISTER, HTTP_NOTICES, "/h2-console/**")
 						.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
 				.addFilterAfter(new CsrfCookieFilter(), BasicAuthenticationFilter.class)
 				.authorizeHttpRequests(requests -> requests

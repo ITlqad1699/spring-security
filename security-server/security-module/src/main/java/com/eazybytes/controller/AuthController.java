@@ -21,45 +21,43 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @AllArgsConstructor
 public class AuthController {
-
-    /**
-     * The Auth service.
-     */
-    AuthService authService;
-
-    /**
-     * The Model mapper.
-     */
-    ModelMapper modelMapper;
-
-    /**
-     * Register user response entity.
-     *
-     * @param customerVM the customer vm
-     * @return the response entity
-     */
-    @PostMapping("/register")
-    public ResponseEntity<String> registerUser(@RequestBody @Valid CustomerVM customerVM) {
-        CustomerDTO newCustomer = authService.create(modelMapper.map(customerVM, CustomerDTO.class));
-        return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .body("New customer has been created: " + newCustomer.getEmail());
-    }
-
-
-    /**
-     * Gets user.
-     *
-     * @param authentication the authentication
-     * @return the user
-     */
-    @GetMapping("/user")
-    public ResponseEntity<CustomerDTO> getUser(Authentication authentication) {
-        String username = authentication.getName();
-        CustomerDTO customer = authService.getUer(username);
-        if (ObjectUtils.isEmpty(customer)) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(customer);
-    }
+	
+	/**
+	 * The Auth service.
+	 */
+	AuthService authService;
+	
+	/**
+	 * The Model mapper.
+	 */
+	ModelMapper modelMapper;
+	
+	/**
+	 * Register user response entity.
+	 *
+	 * @param customerVM the customer vm
+	 * @return the response entity
+	 */
+	@PostMapping("/register")
+	public ResponseEntity<CustomerDTO> registerUser(@RequestBody @Valid CustomerVM customerVM) {
+		CustomerDTO newCustomer = authService.create(modelMapper.map(customerVM, CustomerDTO.class));
+		return ResponseEntity.status(HttpStatus.CREATED).body(newCustomer);
+	}
+	
+	
+	/**
+	 * Gets user.
+	 *
+	 * @param authentication the authentication
+	 * @return the user
+	 */
+	@GetMapping("/user")
+	public ResponseEntity<CustomerDTO> getUser(Authentication authentication) {
+		String username = authentication.getName();
+		CustomerDTO customer = authService.getUer(username);
+		if (ObjectUtils.isEmpty(customer)) {
+			return ResponseEntity.notFound().build();
+		}
+		return ResponseEntity.ok(customer);
+	}
 }

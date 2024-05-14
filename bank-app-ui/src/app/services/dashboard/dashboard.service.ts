@@ -4,7 +4,6 @@ import { AppConstants } from "../../constants/app.constants";
 import { environment } from '../../../environments/environment';
 import { User } from '../../model/user.model';
 import { Contact } from '../../model/contact.model';
-import { Register } from 'src/app/model/register.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,11 +34,6 @@ export class DashboardService {
 
   saveMessage(contact : Contact){
     return this.http.post(environment.rooturl + AppConstants.CONTACT_API_URL,contact,{ observe: 'response', withCredentials: true});
-  }
-
-
-  regisUser(register : Register){
-    return this.http.post(environment.rooturl + AppConstants.REGISTER_API_URL,register,{ observe: 'response'});
   }
 
 }

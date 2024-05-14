@@ -15,17 +15,14 @@ export class LoginComponent implements OnInit {
   authStatus: string = "";
   model = new User();
 
-  constructor(private loginService: LoginService, private router: Router) {
+  constructor(private loginService: LoginService, private router: Router) {}
 
-   }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   validateUser(loginForm: NgForm) {
     this.loginService.validateLoginDetails(this.model).subscribe(
       responseData => {
+        window.sessionStorage.setItem("Authorization", responseData.headers.get('Authorization')!);
         this.model = <any> responseData.body;
         
         this.model.authStatus = 'AUTH';

@@ -27,8 +27,8 @@ public class CardsController {
      * @return the my account
      */
     @GetMapping("/my-cards")
-    public ResponseEntity<List<CardsDTO>> getMyAccount(@RequestParam String customerId) {
-        List<CardsDTO> cardsDTOS = cardsService.findByCustomerId(customerId);
+    public ResponseEntity<List<CardsDTO>> getMyAccount(@RequestParam String id) {
+        List<CardsDTO> cardsDTOS = cardsService.findByCustomerId(id);
 
         if (cardsDTOS.isEmpty()) {
             return ResponseEntity.badRequest().build();

@@ -18,9 +18,9 @@ public class BalanceController {
 
     BalanceService balanceService;
 
-    @GetMapping("/myBalance")
-    public ResponseEntity<List<TransactionDTO>> getBalanceDetails(@RequestParam String customerId) {
-        List<TransactionDTO> accountTransactions = balanceService.findByCustomerId(customerId);
+    @GetMapping("/my-balance")
+    public ResponseEntity<List<TransactionDTO>> getBalanceDetails(@RequestParam String id) {
+        List<TransactionDTO> accountTransactions = balanceService.findByCustomerId(id);
         if (accountTransactions.isEmpty()) {
             return ResponseEntity.badRequest().build();
         }

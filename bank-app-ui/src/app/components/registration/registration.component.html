@@ -34,26 +34,30 @@
           </div>
         </div>
         <div class="map-content-9">
-          <span class="text-success" *ngIf="model.email">Your message is submitted. Reference ID is {{model.email}}</span>
-          <form (ngSubmit)="contactForm.valid && saveMessage(contactForm)" #contactForm="ngForm">
+          <span class="text-success" *ngIf="model.id">Your user has been created</span>
+          <form (ngSubmit)="regisForm.valid && regisUser(regisForm)" #regisForm="ngForm">
             <div class="twice">
               <input type="text" class="form-control" name="name" id="name" placeholder="Name" required
-                [(ngModel)]="model.name" #contactName="ngModel">
+                [(ngModel)]="model.name" #name="ngModel">
+            </div>
+            <div class="twice">
+              <input type="text" class="form-control" name="name" id="mobileNumber" placeholder="Phone number" required [(ngModel)]="model.mobileNumber"
+                #mobileNumber="ngModel">
             </div>
             <div class="twice">
               <input type="email" class="form-control" name="email" id="email" placeholder="Email"
                 required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [(ngModel)]="model.email"
-                #contactEmail="ngModel">
-              <span class="text-danger" *ngIf="(contactForm.submitted) &&
-              contactEmail.errors?.['pattern']">Please provide a valid email address</span>
+                #email="ngModel">
+              <span class="text-danger" *ngIf="(regisForm.submitted) &&
+              email.errors?.['pattern']">Please provide a valid email address</span>
             </div>
             <div class="twice">
               <input type="password" class="form-control" name="password" id="password" placeholder="Password" required
-                [(ngModel)]="model.password" #subject="ngModel">
+                [(ngModel)]="model.password" #password="ngModel">
             </div>
             <div class="twice">
               <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" placeholder="confirmPassword" required
-              [(ngModel)]="model.confirmPassword" #subject="ngModel">
+              [(ngModel)]="model.confirmPassword" #confirmPassword="ngModel">
               <span class="text-danger" *ngIf="(model.password != model.confirmPassword)">Password did not match</span>
             </div>
             <button type="submit" class="btn btn-contact">Create User</button>
