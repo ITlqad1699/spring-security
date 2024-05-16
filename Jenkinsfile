@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-               git 'https://github.com/ITlqad1699/spring-security.git'
+                git credentialsId: 'Credential_ID', url: 'https://github.com/ITlqad1699/spring-security.git'
             }
         }
     }
